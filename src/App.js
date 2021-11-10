@@ -6,6 +6,7 @@ import ExploreProducts from './Pages/Home/ExploreProducts/ExploreProducts';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Register from './Pages/Register/Register';
 import Navbar from './Pages/Shared/Navbar/Navbar';
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <DashBoard/>
+            </PrivateRoute>
+            <PrivateRoute path="/placeOrder/:orderId">
+              <PlaceOrder/>
             </PrivateRoute>
             <Route path="/exploreProducts">
               <ExploreProducts/>

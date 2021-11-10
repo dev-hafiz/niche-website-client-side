@@ -49,7 +49,7 @@ const Login = () => {
                PLEASE LOGIN 
           </Typography>
           
-          <form onSubmit={handleLoginSubmit}>
+          { !isLoading && <form onSubmit={handleLoginSubmit}>
           <TextField 
           required
           sx={{width:"75%", mt:5}}
@@ -71,7 +71,7 @@ const Login = () => {
           variant="standard" />
           <br />
           <Button sx={{width:"75%", mt:5, background:'#BDB099', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Login</Button>
-          </form>
+          </form>}
 
           <NavLink style={{textDecoration:'none'}} to="/register">
           <Button  variant="text">Don't have an account? register</Button>
