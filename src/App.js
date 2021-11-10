@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Pages/AuthProvider/AuthProvider';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
+import Payment from './Pages/DashBoard/DashBoard/Payment/Payment';
+import Reviews from './Pages/DashBoard/Reviews/Reviews';
+import UsersReview from './Pages/DashBoard/UsersReview/UsersReview';
 import ExploreProducts from './Pages/Home/ExploreProducts/ExploreProducts';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
@@ -10,14 +13,14 @@ import NotFound from './Pages/NotFound/NotFound';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Register from './Pages/Register/Register';
-import Navbar from './Pages/Shared/Navbar/Navbar';
+
 
 function App() {
   return (
     <div className="App">
      <AuthProvider>
      <Router>
-        <Navbar/>
+        
           <Switch>
             <Route exact path="/">
               <Home/>
@@ -33,6 +36,15 @@ function App() {
             </Route>
             <Route path="/myOrders">
               <MyOrders/>
+            </Route>
+            <Route path="/payment">
+              <Payment/>
+            </Route>
+            <Route path="/userReview">
+              <UsersReview/>
+            </Route>
+            <Route path="/reviews">
+              <Reviews/>
             </Route>
             <PrivateRoute path="/dashboard">
               <DashBoard/>

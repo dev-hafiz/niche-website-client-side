@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import './PlaceOrder.css';
 import useAuth from '../../hooks/useAuth';
+import Navbar from '../Shared/Navbar/Navbar';
 
 const PlaceOrder = () => {
     const {user} = useAuth()
@@ -41,6 +42,8 @@ const PlaceOrder = () => {
           };
 
      return (
+          <>
+          <Navbar/>
           <Container sx={{marginTop:'80px', marginBottom:'60px'}}>
           <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={6}>
@@ -82,6 +85,7 @@ const PlaceOrder = () => {
           </Grid>
           </Grid>
           </Container>
+          </>
      );
 };
 

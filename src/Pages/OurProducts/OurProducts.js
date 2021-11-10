@@ -21,7 +21,7 @@ const OurProducts = () => {
 
      return (
           <Container>
-               <Typography sx={{textAlign:'center', my:5, color:'#252525', fontWeight:'700'}} variant="h5" gutterBottom component="div">
+               <Typography sx={{textAlign:'center', my:5, color:'#252525', fontWeight:'700'}} variant="h4" gutterBottom component="div">
                 OUR PRODUCTS
                </Typography>
 

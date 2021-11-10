@@ -24,7 +24,8 @@ const useFurebase = () =>{
               setAuthError('')
               const newUser = {email, displayName:name}
               setUser(newUser)
-              
+              //Saved User in DB
+              saveUser(email, name, 'POST')
               //Send name to firebase 
               updateProfile(auth.currentUser, {
                displayName: name
@@ -67,7 +68,7 @@ const useFurebase = () =>{
           .then((result) => {
                
                const user = result.user;
-               
+               saveUser(user.email, user.displayName, 'PUT')
                const destination = location?.state?.from || '/';
                history.replace(destination)
                setAuthError('');
@@ -101,6 +102,21 @@ const useFurebase = () =>{
                 });
              return ()=> unsubscribe;
         },[])
+
+        //Save User To Database
+          const saveUser = (email, displayName, method) =>{
+               const user ={email, displayName}
+               fetch('http://localhost:5000/users',{
+                    method: method,
+                    headers:{
+                         'content-type':'application/json'
+                    },
+                    body: JSON.stringify(user)
+               })
+               .then(res => res.json())
+               .then(data => console.log(data))
+
+          }
 
      return{
           user,
