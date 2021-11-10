@@ -6,8 +6,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import webLogo from '../../../images/top-banner/web-logo.png';
 import CardMedia from '@mui/material/CardMedia';
+import { NavLink } from 'react-router-dom';
+import useFirebase from '../../../hooks/useFirebase';
 
 const Navbar = () => {
+
+    const {user, logOut} = useFirebase()
+
      return (
           <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
@@ -21,7 +26,20 @@ const Navbar = () => {
                   alt="Paella dish"
                 />
               </Typography>
-              <Button color="inherit">Login</Button>
+
+              <NavLink style={{textDecoration:'none', color:'#BDB099', marginRight:'20px'}}  to="/home">
+              Home
+              </NavLink>
+              {user.email && <NavLink style={{textDecoration:'none', color:'#BDB099', marginRight:'20px'}}  to="/dashboard">
+              DashBoard
+              </NavLink>}
+              {user.email ? 
+                <Button onClick={logOut} color="inherit" variant="outlined">Logout</Button>
+                :
+                <NavLink style={{textDecoration:'none', color:'#BDB099'}} to="/login">
+                <Button color="inherit">Login</Button>
+              </NavLink>}
+              
             </Toolbar>
           </AppBar>
         </Box>
