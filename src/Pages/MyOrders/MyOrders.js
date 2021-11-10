@@ -13,7 +13,7 @@ const MyOrders = () => {
 
      const {user} = useAuth()
      const [orders, setOrders] = useState([]);
-
+     
      useEffect( ()=>{
      const url = `http://localhost:5000/addOrders?email=${user.email}`
 
@@ -25,13 +25,21 @@ const MyOrders = () => {
 
 
      const handleDelete = id => {
-          // const url = `http://localhost:5000/addOrders/${id}`
-          // fetch(url,{
-          //      method:'DELETE'
-          // })
-          // .then(data =>{
-          //      console.log(data)
-          // })
+          const proceed = window.confirm("Are you sure to delete this one")
+          if(proceed){
+               const url = `http://localhost:5000/addOrders/${id}`
+          fetch(url,{
+               method:'DELETE'
+          })
+          .then(res => res.json())
+          .then(data =>{
+               if(data.deletedCount> 0){
+                    alert('delete successfully')
+                    const remainingOrders = orders.filter(order => order._id !== id)
+                    setOrders(remainingOrders)
+               }
+          })
+          }
      }
      return (
          <Container sx={{marginTop:"80px", marginBottom:"60px"}}>
@@ -63,7 +71,7 @@ const MyOrders = () => {
                          <TableCell align="right"> $ {row.price}</TableCell>
                          <TableCell align="center">
                          <Button
-                         onClick={()=> handleDelete(orders._id)}
+                         onClick={()=> handleDelete(orders[0]._id)}
                          sx={{color:'#252525'}}
                           variant="text"
                           >

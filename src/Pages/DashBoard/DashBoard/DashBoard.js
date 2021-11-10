@@ -59,20 +59,10 @@ function DashBoard(props) {
                <Button variant="text">Home</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}`}>
-               <Button variant="text">My Orders</Button>
-          </NavLink>
-          <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/payment`}>
-               <Button variant="text">Your Payment</Button>
-          </NavLink>
-          <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/userReview`}>
-               <Button variant="text">User Review</Button>
-          </NavLink>
-          <br/>
           
-          {admin && <Box>
+          
+          
+          {admin ? <Box>
           <NavLink style={{textDecoration:'none'}} to={`${url}/makeAdmin`}>
                <Button variant="text">Make Admin</Button>
           </NavLink>
@@ -89,7 +79,22 @@ function DashBoard(props) {
                <Button variant="text">Manage All Products</Button>
           </NavLink>
           <br/>
-          </Box>}
+          </Box> :
+          <Box>
+          <NavLink style={{textDecoration:'none'}} to={`${url}`}>
+               <Button variant="text">My Orders</Button>
+          </NavLink>
+          <br/>
+          <NavLink style={{textDecoration:'none'}} to={`${url}/payment`}>
+               <Button variant="text">Your Payment</Button>
+          </NavLink>
+          <br/>
+          <NavLink style={{textDecoration:'none'}} to={`${url}/userReview`}>
+               <Button variant="text">User Review</Button>
+          </NavLink>
+          <br/>
+          </Box>
+          }
           
           </Box>
           
@@ -110,7 +115,7 @@ function DashBoard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar style={{background:'#C9BFAC', paddingBottom:'20px'}}>
+        <Toolbar style={{background:'#252525', paddingBottom:'20px'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
