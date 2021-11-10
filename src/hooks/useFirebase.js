@@ -9,6 +9,7 @@ const useFurebase = () =>{
 
      const [user, setUser] = useState({});
      const [isLoading, setIsLoading] = useState(true);
+     const [admin, setAdmin] = useState(false)
      const [authError, setAuthError] = useState('')
 
 
@@ -118,6 +119,13 @@ const useFurebase = () =>{
 
           }
 
+          //admin check dataload with email
+          useEffect( ()=>{
+               fetch(`http://localhost:5000/users/${user.email}`)
+               .then(res => res.json())
+               .then(data => setAdmin(data.admin))
+          },[user.email])
+
      return{
           user,
           isLoading,
@@ -125,7 +133,8 @@ const useFurebase = () =>{
           registerUser,
           loginUser,
           logOut,
-          googleUserSignIn
+          googleUserSignIn,
+          admin
 
      }
 

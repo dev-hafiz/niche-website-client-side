@@ -1,13 +1,14 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import OurProduct from '../../OurProduct/OurProduct';
+import Navbar from '../../Shared/Navbar/Navbar';
 
 const ExploreProducts = () => {
 
      const [page, setPage]= useState (0)
      // Product reander on the ui with limit
      const [displayProducts, setDisplayProducts] = useState([]);
-     const size = 12;
+     const size = 100;
 
      useEffect( ()=>{
           fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
@@ -19,6 +20,10 @@ const ExploreProducts = () => {
           },[page])
 
      return (
+          <>
+
+          <Navbar/>
+
           <Container sx={{marginTop:'80px', marginBottom:'60px'}}>
           <Typography sx={{textAlign:'center', my:5, color:'#252525', fontWeight:'700'}} variant="h5" gutterBottom component="div">
            OUR PRODUCTS
@@ -33,6 +38,7 @@ const ExploreProducts = () => {
           }
           </Grid>
      </Container>
+          </>
      );
 };
 

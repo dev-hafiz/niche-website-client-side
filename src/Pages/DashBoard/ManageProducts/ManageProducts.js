@@ -1,43 +1,28 @@
+import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Button, Container, Typography } from '@mui/material';
 
-const MyOrders = () => {
+const ManageProducts = () => {
 
-     const {user} = useAuth()
-     const [orders, setOrders] = useState([]);
+     const [page, setPage]= useState (0)
+     // Product reander on the ui with limit
+     const [displayProducts, setDisplayProducts] = useState([]);
+     const size = 100;
 
      useEffect( ()=>{
-     const url = `http://localhost:5000/addOrders?email=${user.email}`
+          fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+               .then(res => res.json())
+               .then(data => {
+               setDisplayProducts(data.products);
+               
+               });
+          },[page])
 
-     fetch(url)
-     .then(res => res.json())
-     .then( data => setOrders(data))
 
-     },[user.email])
-
-
-     const handleDelete = id => {
-          // const url = `http://localhost:5000/addOrders/${id}`
-          // fetch(url,{
-          //      method:'DELETE'
-          // })
-          // .then(data =>{
-          //      console.log(data)
-          // })
-     }
      return (
-         <Container sx={{marginTop:"80px", marginBottom:"60px"}}>
+          <Container sx={{marginTop:"80px", marginBottom:"60px"}}>
 
          <Typography sx={{fontWeight:'medium', mt:3}} variant="h4">
-            MY TOTAL ORDERS {orders.length}
+             MANAGE TOTAL PRODUCTS {displayProducts.length}
          </Typography>
                <TableContainer component={Paper}>
                     <Table  aria-label="simple table">
@@ -51,7 +36,7 @@ const MyOrders = () => {
                          </TableRow>
                     </TableHead>
                     <TableBody>
-                         {orders.map((row) => (
+                         {displayProducts.map((row) => (
                          <TableRow
                          key={row._id}
                          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -63,11 +48,11 @@ const MyOrders = () => {
                          <TableCell align="right"> $ {row.price}</TableCell>
                          <TableCell align="center">
                          <Button
-                         onClick={()=> handleDelete(orders._id)}
+                         
                          sx={{color:'#252525'}}
                           variant="text"
                           >
-                          <i className="fas fa-trash"></i>
+                          <i className="fas fa-pencil-alt"></i>
                           </Button> 
                           </TableCell>
                          
@@ -81,4 +66,4 @@ const MyOrders = () => {
      );
 };
 
-export default MyOrders;
+export default ManageProducts;

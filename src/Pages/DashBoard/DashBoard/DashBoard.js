@@ -30,12 +30,15 @@ import Payment from './Payment/Payment';
 import useAuth from '../../../hooks/useAuth';
 import UsersReview from '../UsersReview/UsersReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProducts from '../AddProducts/AddProducts';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 240;
 
 function DashBoard(props) {
 
-  const {logOut} = useAuth()
+  const {logOut, admin} = useAuth()
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
@@ -68,10 +71,26 @@ function DashBoard(props) {
                <Button variant="text">User Review</Button>
           </NavLink>
           <br/>
+          
+          {admin && <Box>
           <NavLink style={{textDecoration:'none'}} to={`${url}/makeAdmin`}>
                <Button variant="text">Make Admin</Button>
           </NavLink>
           <br/>
+          <NavLink style={{textDecoration:'none'}} to={`${url}/addProducts`}>
+               <Button variant="text">Add Products</Button>
+          </NavLink>
+          <br/>
+          <NavLink style={{textDecoration:'none'}} to={`${url}/manageAllOrders`}>
+               <Button variant="text">Manage All Orders</Button>
+          </NavLink>
+          <br/>
+          <NavLink style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
+               <Button variant="text">Manage All Products</Button>
+          </NavLink>
+          <br/>
+          </Box>}
+          
           </Box>
           
        
@@ -91,7 +110,7 @@ function DashBoard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar style={{background:'#BDB099', paddingBottom:'20px'}}>
+        <Toolbar style={{background:'#C9BFAC', paddingBottom:'20px'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -155,6 +174,15 @@ function DashBoard(props) {
         </Route>
         <Route path={`${path}/makeAdmin`}>
           <MakeAdmin/>
+        </Route>
+        <Route path={`${path}/addProducts`}>
+          <AddProducts/>
+        </Route>
+        <Route path={`${path}/manageAllOrders`}>
+          <ManageAllOrders/>
+        </Route>
+        <Route path={`${path}/manageAllProducts`}>
+          <ManageProducts/>
         </Route>
       </Switch>
         
