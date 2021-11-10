@@ -2,8 +2,13 @@ import { CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { useForm } from "react-hook-form";
+import './PlaceOrder.css';
+import useAuth from '../../hooks/useAuth';
 
 const PlaceOrder = () => {
+    const {user} = useAuth()
+     
 
      const {orderId} = useParams();
 
@@ -16,6 +21,24 @@ const PlaceOrder = () => {
          .then (data => setSingleProduct(data))
      },[])
 
+
+     const { register, handleSubmit } = useForm();
+     const onSubmit = data =>{
+           data.email = user?.email;
+          
+           fetch("http://localhost:5000/addOrders", {
+               method: "POST",
+               headers: { "content-type": "application/json" },
+               body: JSON.stringify(data),
+               })
+               .then((res) => res.json())
+               .then(result =>{
+                    if(result.insertedId){
+                         alert('Your Order successfully')
+                    }
+               })
+          
+          };
 
      return (
           <Container sx={{marginTop:'80px', marginBottom:'60px'}}>
@@ -46,8 +69,16 @@ const PlaceOrder = () => {
                </Box>
              </Paper>  
           </Grid>
-          <Grid item xs={12} sm={12} md={6}>
+
+          <Grid className="product-form" item xs={12} sm={12} md={6}>
           
+               <form onSubmit={handleSubmit(onSubmit)}>
+               <input defaultValue={singleProduct?.title} {...register("title",  { required: true })} placeholder="Product title" />
+               <input  defaultValue={singleProduct?.price} type="number" {...register("price",  { required: true })} placeholder="Price" />
+               <textarea  defaultValue={singleProduct?.des} {...register("des",  { required: true })} placeholder="Description" />
+               <input  defaultValue={singleProduct?.img} {...register("img",  { required: true })} placeholder="Image url" />
+               <input className="placebtn" type="submit"  value="Place Order"/>
+               </form>
           </Grid>
           </Grid>
           </Container>

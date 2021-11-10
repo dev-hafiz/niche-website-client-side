@@ -1,0 +1,24 @@
+.product-form form input, textarea{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 10px 14px;
+     margin-bottom: 10px !important;
+     
+}
+
+.product-form form input, textarea{
+     width: 70%;
+     margin: 0 auto;
+} 
+
+.placebtn{
+     background: #BD8100;
+     color: #fff;
+     border: none;
+     outline: none;
+     font-weight: 500;
+     font-size: 16px;
+     border-radius: 6px;
+}

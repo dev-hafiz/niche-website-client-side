@@ -5,6 +5,7 @@ import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
 import ExploreProducts from './Pages/Home/ExploreProducts/ExploreProducts';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
+import MyOrders from './Pages/MyOrders/MyOrders';
 import NotFound from './Pages/NotFound/NotFound';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register/>
+            </Route>
+            <Route path="/myOrders">
+              <MyOrders/>
             </Route>
             <PrivateRoute path="/dashboard">
               <DashBoard/>
