@@ -2,9 +2,9 @@ import { Button, CardMedia, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const OurProduct = ({product}) => {
-     
-     const { des, img, price, title, _id} = product || {}
+const OurProduct = ({products}) => {
+
+     const { des, img, price, title, _id} = products || {}
      return (
           <Grid item xs={12} sm={12} md={4}>
              <Paper elevation={3}>
