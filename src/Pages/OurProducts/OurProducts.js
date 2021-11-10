@@ -6,19 +6,14 @@ const OurProducts = () => {
 
    
      const [page, setPage]= useState (0)
-     
-
-      // Product reander on the ui with limit
+     // Product reander on the ui with limit
      const [displayProducts, setDisplayProducts] = useState([]);
-     
-     
      const size = 6;
 
      useEffect( ()=>{
      fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
           .then(res => res.json())
           .then(data => {
-         
           setDisplayProducts(data.products);
           
           });
