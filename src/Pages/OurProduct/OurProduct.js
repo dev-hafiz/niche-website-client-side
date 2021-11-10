@@ -1,6 +1,7 @@
 import { Button, CardMedia, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const OurProduct = ({products}) => {
 
@@ -27,7 +28,9 @@ const OurProduct = ({products}) => {
                 {des}
                </Typography>
 
+               <NavLink style={{textDecoration:'none', color:'#252525'}} to={`/placeOrder/${_id}`}>
                <Button sx={{marginLeft:'16px', marginTop: '20px'}} variant="contained" color="inherit">BUY NOW</Button>
+               </NavLink>
                </Box>
              </Paper>          
           </Grid>
