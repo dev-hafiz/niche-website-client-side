@@ -1,6 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import topBanner from '../../../images/top-banner/top-banner-cycle.png';
 
 
@@ -23,7 +24,9 @@ const TopBanner = () => {
                     WITH CYCLE
                </Typography>
 
-               <Button style={{background : '#fff', color:'#BDB099', marginTop:'20px'}} variant="contained"><i className="fas fa-plus"></i> <span style={{marginLeft:'10px'}}> Explore More</span> </Button>
+               <NavLink style={{textDecoration:'none'}} to="/exploreProducts">
+               <Button style={{background : '#fff', color:'#BDB099', marginTop:'20px'}} variant="contained"><i className="fas fa-plus"></i> <span style={{marginLeft:'10px'}}> Explore Products</span> </Button>
+               </NavLink>
                </Box>
           </Box>
      );
