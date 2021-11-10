@@ -13,6 +13,7 @@ const useFurebase = () =>{
 
 
      const auth = getAuth();
+     const googleProvider = new GoogleAuthProvider()
 
      //registerUser
      const registerUser =(email, password, name, history) =>{
@@ -59,6 +60,23 @@ const useFurebase = () =>{
 
      }
 
+     //Google SignIn
+     const googleUserSignIn = (location, history) =>{
+          setIsLoading(true)
+          signInWithPopup(auth, googleProvider)
+          .then((result) => {
+               
+               const user = result.user;
+               
+               const destination = location?.state?.from || '/';
+               history.replace(destination)
+               setAuthError('');
+          }).catch((error) => {
+               setAuthError(error.message);
+          })
+          .finally(()=> setIsLoading(false));
+     }
+
      //LogoutUser
      const logOut = () =>{
           setIsLoading(true)
@@ -90,7 +108,8 @@ const useFurebase = () =>{
           authError,
           registerUser,
           loginUser,
-          logOut
+          logOut,
+          googleUserSignIn
 
      }
 

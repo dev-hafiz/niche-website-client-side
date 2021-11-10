@@ -7,11 +7,11 @@ import Button from '@mui/material/Button';
 import webLogo from '../../../images/top-banner/web-logo.png';
 import CardMedia from '@mui/material/CardMedia';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
 
-    const {user, logOut} = useFirebase()
+    const {user, logOut} = useAuth()
 
      return (
           <Box sx={{ flexGrow: 1 }}>

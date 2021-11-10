@@ -3,11 +3,12 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink , useHistory} from 'react-router-dom';
 import loginImg from '../../../src/images/login.png';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+
 
 const Register = () => {
 
-     const {registerUser, isLoading, authError, user } = useFirebase()
+     const {registerUser, isLoading, authError, user } = useAuth()
      const history = useHistory()
      const [loginData, setLoginData] = useState({})
 
@@ -83,7 +84,7 @@ const Register = () => {
           type="password"
           variant="standard" />
           <br />
-          <Button sx={{width:"75%", mt:5, background:'#BDB099'}} variant="contained" color="inherit" type="submit">Register</Button>
+          <Button sx={{width:"75%", mt:5, background:'#BDB099', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Register</Button>
           </form>}
 
           <NavLink style={{textDecoration:'none'}} to="/login">

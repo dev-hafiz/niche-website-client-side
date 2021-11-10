@@ -3,13 +3,13 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import loginImg from '../../../images/login.png';
-import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Login = () => {
 
      const {loginUser, user, isLoading,
-          authError} = useFirebase()
+          authError, googleUserSignIn} = useAuth()
 
      const location = useLocation()
      const history = useHistory()
@@ -29,6 +29,13 @@ const Login = () => {
           e.preventDefault();
           
      }
+
+     //Google handler
+     const handleGoogleSignIn = () =>{
+          googleUserSignIn(location, history)
+     }
+
+
      return (
           <Container sx={{my:8}}>
           <Grid container spacing={2}>
@@ -63,12 +70,14 @@ const Login = () => {
           type="password"
           variant="standard" />
           <br />
-          <Button sx={{width:"75%", mt:5, background:'#BDB099'}} variant="contained" color="inherit" type="submit">Login</Button>
+          <Button sx={{width:"75%", mt:5, background:'#BDB099', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Login</Button>
           </form>
 
           <NavLink style={{textDecoration:'none'}} to="/register">
           <Button  variant="text">Don't have an account? register</Button>
           </NavLink>
+
+          <Button onClick={handleGoogleSignIn} sx={{width:"75%", mt:5, background:'#B57500', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Google Login</Button>
 
           {isLoading && <CircularProgress />}
          {user?.email && <Alert severity="success">This is a success alert — check it out!</Alert>}
