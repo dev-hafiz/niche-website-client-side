@@ -2,7 +2,7 @@
 
 Online Bicycle shope
 
-if your are interested click to the [Velo](https://pip.pypa.io/en/stable/) and visit the site
+if your are interested click to the [Velo](https://cycle-ride-auth.web.app/) and visit the site
 
 ## Read some pre use
 
@@ -27,4 +27,4 @@ Thanks | Dear,
 
 ## License
 
-[Velo cycle ride, click the link](https://choosealicense.com/licenses/mit/)
+[Velo cycle ride, click the link](https://cycle-ride-auth.web.app/)
