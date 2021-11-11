@@ -70,14 +70,14 @@ const Login = () => {
           type="password"
           variant="standard" />
           <br />
-          <Button sx={{width:"75%", mt:5, background:'#BDB099', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Login</Button>
+          <Button sx={{width:"75%", mt:5, background:'#fff', color:'#1a1a1b', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Login</Button>
           </form>}
 
           <NavLink style={{textDecoration:'none'}} to="/register">
           <Button  variant="text">Don't have an account? register</Button>
           </NavLink>
 
-          <Button onClick={handleGoogleSignIn} sx={{width:"75%", mt:5, background:'#B57500', color:'#252525', fontWeight:'bold'}} variant="contained" color="inherit" type="submit">Google Login</Button>
+          <Button className="btn-submit" onClick={handleGoogleSignIn} sx={{width:"75%", mt:5, fontWeight:'bold',background:'#1a1a1b', color:'#fff'}} variant="contained" color="inherit" type="submit">Google Login</Button>
 
           {isLoading && <CircularProgress />}
          {user?.email && <Alert severity="success">This is a success alert — check it out!</Alert>}

@@ -52,45 +52,45 @@ function DashBoard(props) {
       
       
           <Box >
-           <Button onClick={logOut} variant="outlined">Log Out</Button>
+           <Button sx={{border:'1px solid #1a1a1b'}} onClick={logOut} variant="outlined" color="inherit">Log Out</Button>
           <br/>
           
-          <NavLink style={{textDecoration:'none'}} to="/home">
-               <Button variant="text">Home</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to="/home">
+               <Button variant="text" color="inherit">Home</Button>
           </NavLink>
           <br/>
           
           
           
           {admin ? <Box>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/makeAdmin`}>
-               <Button variant="text">Make Admin</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/makeAdmin`}>
+               <Button variant="text" color="inherit">Make Admin</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/addProducts`}>
-               <Button variant="text">Add Products</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/addProducts`}>
+               <Button variant="text" color="inherit">Add Products</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/manageAllOrders`}>
-               <Button variant="text">Manage All Orders</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/manageAllOrders`}>
+               <Button variant="text" color="inherit">Manage All Orders</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
-               <Button variant="text">Manage All Products</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/manageAllProducts`}>
+               <Button variant="text" color="inherit">Manage All Products</Button>
           </NavLink>
           <br/>
           </Box> :
           <Box>
-          <NavLink style={{textDecoration:'none'}} to={`${url}`}>
-               <Button variant="text">My Orders</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}`}>
+               <Button variant="text" color="inherit">My Orders</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/payment`}>
-               <Button variant="text">Your Payment</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/payment`}>
+               <Button variant="text" color="inherit">Your Payment</Button>
           </NavLink>
           <br/>
-          <NavLink style={{textDecoration:'none'}} to={`${url}/userReview`}>
-               <Button variant="text">User Review</Button>
+          <NavLink style={{textDecoration:'none', color:'#1a1a1b'}} to={`${url}/userReview`}>
+               <Button variant="text" color="inherit">User Review</Button>
           </NavLink>
           <br/>
           </Box>

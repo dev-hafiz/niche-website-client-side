@@ -29,7 +29,7 @@ const OurProduct = ({products}) => {
                </Typography>
 
                <NavLink style={{textDecoration:'none', color:'#252525'}} to={`/placeOrder/${_id}`}>
-               <Button sx={{marginLeft:'16px', marginTop: '20px'}} variant="contained" color="inherit">BUY NOW</Button>
+               <Button sx={{marginLeft:'16px', marginTop: '20px'}} variant="contained" color="inherit"> <i className="fas pd-btn fa-shopping-cart"></i> BUY NOW</Button>
                </NavLink>
                </Box>
              </Paper>          

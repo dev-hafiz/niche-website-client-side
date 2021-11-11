@@ -18,13 +18,14 @@ body{
 } 
 
 .placebtn{
-     background: #BD8100;
+     background: #1a1a1b;
      color: #fff;
      border: none;
      outline: none;
      font-weight: 500;
      font-size: 16px;
      border-radius: 6px;
+     font-weight: 700;
 }
 
 .icon{

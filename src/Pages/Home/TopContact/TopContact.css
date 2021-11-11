@@ -18,3 +18,8 @@
      transform: rotate(50deg);
      transition: linear .3s;
 }
+
+.pd-btn{
+     font-size: 16px;
+     margin-right: 14px;
+}

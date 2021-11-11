@@ -27,17 +27,17 @@ const Navbar = () => {
                 />
               </Typography>
 
-              <NavLink style={{textDecoration:'none', color:'#BDB099', marginRight:'20px'}}  to="/home">
+              <NavLink style={{textDecoration:'none', color:'#1a1a1b', marginRight:'20px', fontWeight:600}}  to="/home">
               Home
               </NavLink>
-              {user.email && <NavLink style={{textDecoration:'none', color:'#BDB099', marginRight:'20px'}}  to="/dashboard">
+              {user.email && <NavLink style={{textDecoration:'none', color:'#1a1a1b', marginRight:'20px', fontWeight:600}}  to="/dashboard">
               DashBoard
               </NavLink>}
               {user.email ? 
-                <Button onClick={logOut} color="inherit" variant="outlined">Logout</Button>
+                <Button sx={{border:'1px solid #1a1a1b', color:'#1a1a1b'}} onClick={logOut} color="inherit" variant="outlined" >Logout</Button>
                 :
-                <NavLink style={{textDecoration:'none', color:'#BDB099'}} to="/login">
-                <Button color="inherit">Login</Button>
+                <NavLink style={{textDecoration:'none'}} to="/login">
+                <Button sx={{border:'1px solid #1a1a1b', color:'#1a1a1b'}} variant="outlined" color="inherit">Login</Button>
               </NavLink>}
               
             </Toolbar>
