@@ -22,7 +22,7 @@ const ManageProducts = () => {
           <Container sx={{marginTop:"80px", marginBottom:"60px"}}>
 
          <Typography sx={{fontWeight:'medium', mt:3}} variant="h4">
-             MANAGE TOTAL PRODUCTS {displayProducts.length}
+             MANAGE ALL PRODUCTS {displayProducts.length}
          </Typography>
                <TableContainer component={Paper}>
                     <Table  aria-label="simple table">
