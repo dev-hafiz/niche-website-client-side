@@ -27,4 +27,4 @@ Thanks | Dear,
 
 ## License
 
-[Velo cycle ride, click the link](https://cycle-ride-auth.web.app/)
+[Velo cycle ride, click the link and visit](https://cycle-ride-auth.web.app/)
