@@ -13,6 +13,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Register from './Pages/Register/Register';
+import Footer from './Pages/Shared/Footer/Footer';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
               <NotFound/>
             </Route>
            </Switch>
+           <Footer/>
       </Router>
      </AuthProvider>
     </div>

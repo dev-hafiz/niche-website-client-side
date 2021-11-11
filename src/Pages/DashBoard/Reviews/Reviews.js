@@ -18,7 +18,7 @@ const Reviews = () => {
 
 
      return (
-          <Container sx={{mb:8}}>
+          <Container sx={{marginTop:'140px'}}>
           <Typography sx={{textAlign:'center', color:'#252525', fontWeight:'bold', marginTop:'100px', marginBottom:'60'}} variant="h4">
                User Review
           </Typography>
