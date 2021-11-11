@@ -16,7 +16,7 @@ const PlaceOrder = () => {
      const [singleProduct, setSingleProduct] = useState({})
 
      useEffect( ()=>{
-         const url = `http://localhost:5000/products/${orderId}`
+         const url = `https://agile-castle-38386.herokuapp.com/products/${orderId}`
          fetch(url)
          .then( res => res.json())
          .then (data => setSingleProduct(data))
@@ -27,7 +27,7 @@ const PlaceOrder = () => {
      const onSubmit = data =>{
            data.email = user?.email;
           
-           fetch("http://localhost:5000/addOrders", {
+           fetch("https://agile-castle-38386.herokuapp.com/addOrders", {
                method: "POST",
                headers: { "content-type": "application/json" },
                body: JSON.stringify(data),

@@ -13,7 +13,7 @@ const UsersReview = () => {
           
           console.log(data)
           
-           fetch("http://localhost:5000/reviews", {
+           fetch("https://agile-castle-38386.herokuapp.com/reviews", {
                method: "POST",
                headers: { "content-type": "application/json" },
                body: JSON.stringify(data),
