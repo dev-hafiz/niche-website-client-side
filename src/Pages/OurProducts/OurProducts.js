@@ -8,6 +8,7 @@ const OurProducts = () => {
   const [displayProducts, setDisplayProducts] = useState([]);
   const size = 6;
 
+  //Load data via userffect
   useEffect(() => {
     fetch(
       `https://niche-website-server.onrender.com/products?page=${page}&&size=${size}`
